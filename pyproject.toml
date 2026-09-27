@@ -1,0 +1,14 @@
+[project]
+name = "spherical-bessel-functions"
+version = "0.1.0"
+description = "Evaluates spherical Bessel functions of the first and second kind using recurrences on plain floats."
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
