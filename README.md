@@ -28,3 +28,10 @@ For `j_n`, upward recurrence is numerically unstable when `x` is small relative 
 - `spherical_y(n, 0.0)` raises `ValueError`, since `y_n` has a pole at the origin.
 - Negative or non-integer `n` raises `ValueError`.
 - For very large `n` relative to `x`, the downward recurrence headroom may be insufficient; this library targets moderate `n` and `x` (roughly `n` up to a few tens).
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
